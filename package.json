@@ -1,0 +1,27 @@
+{
+  "name": "noxy-liuz",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@generouted/react-router": "^1.11.6",
+    "@preact/signals": "^1.1.3",
+    "generouted": "^1.11.6",
+    "preact": "^10.13.0",
+    "react-clock": "^4.1.0",
+    "react-router-dom": "^6.9.0",
+    "unocss": "^0.50.6"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.5.0",
+    "@unocss/reset": "^0.50.6",
+    "typescript": "^4.9.3",
+    "vite": "^4.2.0",
+    "vite-plugin-pwa": "^0.14.4"
+  }
+}
