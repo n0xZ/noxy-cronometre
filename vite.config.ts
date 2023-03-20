@@ -18,6 +18,7 @@ export default defineConfig({
 				short_name: 'Liuz',
 				description: 'Handle your tasks based an countdown',
 				theme_color: '#312e81',
+				background_color: '#312e81',
 				start_url: '/',
 				icons: [
 					{
