@@ -1,5 +1,4 @@
 import { useSignal, effect } from '@preact/signals'
-
 import { JSX } from 'preact/jsx-runtime'
 
 type CountdownState = {
@@ -44,12 +43,13 @@ export function useCountdownTimer() {
 			minutes: Number(countdownValues.minutes),
 		}
 
-		if (!parsedCountdownValues.title.length || parsedCountdownValues.minutes < 0)
+		if (!parsedCountdownValues.title.length || parsedCountdownValues.minutes < 2)
 			errors.value = { message: 'Please, fill up the following fields.' }
 		else
 			countdown.value = {
 				values: {
-					minutes: parsedCountdownValues.hours * 60 + parsedCountdownValues.minutes,
+					minutes:
+						parsedCountdownValues.hours * 60 + (parsedCountdownValues.minutes - 1),
 					title: parsedCountdownValues.title,
 				},
 				status: 'IN_PROGRESS',
