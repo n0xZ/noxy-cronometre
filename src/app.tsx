@@ -1,8 +1,9 @@
 import { ComponentChildren, h } from 'preact'
 
-import { CountdownForm } from './countdown/form'
-import { CountdownRemaining } from './countdown/remaining'
+import { CountdownForm } from './components/countdown/form'
+import { CountdownRemaining } from './components/countdown/remaining'
 import { useCountdownTimer } from './hooks/useCountdownTimer'
+
 
 function AppContainer(props: { children: ComponentChildren }) {
 	return (
@@ -22,7 +23,7 @@ export function App() {
 		pauseCountdown,
 		resumeCountdown,
 	} = useCountdownTimer()
-	
+
 	return (
 		<AppContainer>
 			{countdown.value.status === 'STALE' ? (
