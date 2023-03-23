@@ -4,7 +4,6 @@ import { CountdownForm } from './components/countdown/form'
 import { CountdownRemaining } from './components/countdown/remaining'
 import { useCountdownTimer } from './hooks/useCountdownTimer'
 
-
 function AppContainer(props: { children: ComponentChildren }) {
 	return (
 		<main class="min-h-screen h-full flex flex-col justify-center space-y-3 container mx-auto max-w-xl w-full">
@@ -17,6 +16,7 @@ export function App() {
 	const {
 		remainingTime,
 		countdown,
+
 		errors,
 		initializeCountdown,
 		clearCountdown,

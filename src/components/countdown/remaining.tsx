@@ -6,7 +6,6 @@ type Props = {
 		remainingTime: () => number
 		status: 'IN_PROGRESS' | 'PAUSED' | 'STALE'
 	}
-	audioRef: Ref<HTMLAudioElement | undefined>
 	resumeCountdown: () => void
 	clearCountdown: () => void
 	pauseCountdown: () => void
@@ -92,6 +91,7 @@ export function CountdownRemaining(props: Props) {
 				{isActive ? (
 					props.results.status === 'IN_PROGRESS' ? (
 						<button
+							type="button"
 							class="flex flex-row justify-center items-center space-x-2 rounded-lg bg-neutral-400 p-3 w-32 hover:opacity-60 duration-100 ease-in-out"
 							onClick={props.pauseCountdown}
 						>
@@ -100,6 +100,7 @@ export function CountdownRemaining(props: Props) {
 						</button>
 					) : (
 						<button
+							type="button"
 							class=" flex flex-row justify-center items-center space-x-2 rounded-lg bg-neutral-400 p-3 w-32 hover:opacity-60 duration-100 ease-in-out"
 							onClick={props.resumeCountdown}
 						>
@@ -115,6 +116,13 @@ export function CountdownRemaining(props: Props) {
 					<ClearIcon />
 					<span>Reset</span>
 				</button>
+				<audio
+					loop
+					autoPlay={props.results.remainingTime() !== 0}
+					muted={props.results.remainingTime() !== 0}
+				>
+					<source src="/ringtone.mp3" type="audio/mpeg" />
+				</audio>
 			</aside>
 		</section>
 	)

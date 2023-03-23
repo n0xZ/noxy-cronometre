@@ -1,9 +1,10 @@
 import { useSignal, effect } from '@preact/signals'
+import { useRef } from 'preact/hooks'
 import { JSX } from 'preact/jsx-runtime'
 
 type CountdownState = {
 	values: { minutes: number; title: string }
-	status: 'IN_PROGRESS' | 'PAUSED' | 'STALE'
+	status: 'STALE' | 'IN_PROGRESS' | 'PAUSED'
 }
 type CountdownFields = {
 	title: string
@@ -19,6 +20,7 @@ export function useCountdownTimer() {
 		status: 'STALE',
 	})
 	const errors = useSignal<FormErrors>({ message: null })
+
 	const remainingTime = () => countdown.value.values.minutes
 
 	const pauseCountdown = () => {
