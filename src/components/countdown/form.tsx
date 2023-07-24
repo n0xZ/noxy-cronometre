@@ -1,5 +1,5 @@
 import { JSX } from 'preact/jsx-runtime'
-import { h } from 'preact'
+
 
 function ClockIcon() {
 	return (
@@ -27,15 +27,15 @@ export function CountdownForm(props: {
 	return (
 		<form
 			onSubmit={props.initializeCountdown}
-			class=" flex flex-col justify-center space-y-5 container mx-auto max-w-xl p-2"
+			class=" flex flex-col justify-center space-y-5 container mx-auto max-w-xl p-10 bg-white shadow-md rounded-lg"
 		>
-			<h2 class="text-center text-xl font-semibold">Create new countdown</h2>
+			<h2 class="text-center text-xl font-bold">Create new countdown</h2>
 			<aside class="flex flex-col justify-center space-y-2">
 				<label class="font-semibold" htmlFor="hours">
 					Title
 				</label>
 				<input
-					class="rounded-lg p-3 outline-none bg-purple-100"
+					class="rounded-md p-3 outline-none border-2 border-gray-100 focus:border-gray-400"
 					type="text"
 					name="title"
 					placeholder="ie. My first cronometre!"
@@ -46,7 +46,7 @@ export function CountdownForm(props: {
 					Hours
 				</label>
 				<input
-					class="rounded-lg p-3 outline-none bg-purple-100"
+					class="rounded-md p-3 outline-none border-2 border-gray-100 focus:border-gray-400"
 					type="number"
 					name="hours"
 					placeholder="ie. 0"
@@ -57,14 +57,14 @@ export function CountdownForm(props: {
 					Minutes
 				</label>
 				<input
-					class="rounded-lg p-3 outline-none bg-purple-100"
+					class="rounded-md p-3 outline-none border-2 border-gray-100 focus:border-gray-400"
 					type="number"
 					name="minutes"
 					placeholder="ie. 00"
 				/>
 			</aside>
 			<button
-				class="flex flex-row justify-center items-center space-x-2 bg-purple-500 p-2 w-full max-w-xl rounded-lg c-white font-medium mt-4"
+				class="flex flex-row justify-center items-center space-x-2 bg-dark-800 hover:opacity-80 duration-100 ease-in-out p-2 w-full max-w-xl rounded-md c-white font-medium mt-4"
 				type="submit"
 				title="Initialize countdown by clicking this button."
 			>
