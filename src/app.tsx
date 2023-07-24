@@ -1,14 +1,23 @@
-import { ComponentChildren, h } from 'preact'
+import { ComponentChildren } from 'preact'
 
 import { CountdownForm } from './components/countdown/form'
 import { CountdownRemaining } from './components/countdown/remaining'
 import { useCountdownTimer } from './hooks/useCountdownTimer'
+import { ThemeSwitcher } from './components/theme/theme-switch'
 
 function AppContainer(props: { children: ComponentChildren }) {
 	return (
-		<main class="min-h-screen h-full flex flex-col justify-center space-y-3 container mx-auto max-w-xl w-full">
-			{props.children}
-		</main>
+		<>
+			<header class="p-5">
+				<nav class="flex flex-row items-center justify-between container mx-auto max-w-xl">
+					<p>© n0xZ. Powered by Preact 💜</p>
+					<ThemeSwitcher />
+				</nav>
+			</header>
+			<main class="min-h-screen  space-y-3 container mx-auto max-w-xl w-full  grid place-items-center ">
+				{props.children}
+			</main>
+		</>
 	)
 }
 
