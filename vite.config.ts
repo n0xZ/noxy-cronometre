@@ -3,14 +3,14 @@ import preact from '@preact/preset-vite'
 import { VitePWA } from 'vite-plugin-pwa'
 import Unocss from 'unocss/vite'
 import { presetUno, presetWebFonts } from 'unocss'
-
+import { resolve } from 'path'
 // https://vitejs.dev/config/
 export default defineConfig({
 	plugins: [
 		preact(),
 		Unocss({
 			presets: [
-				presetUno(),
+				presetUno({ dark: 'class' }),
 				presetWebFonts({
 					provider: 'bunny',
 					fonts: { roboto: 'Roboto' },
@@ -49,4 +49,9 @@ export default defineConfig({
 			},
 		}),
 	],
+	resolve: {
+		alias: {
+			'~': resolve(__dirname, './src'),
+		},
+	},
 })
