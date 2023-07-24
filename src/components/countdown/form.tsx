@@ -26,7 +26,7 @@ export function CountdownForm(props: {
 	return (
 		<form
 			onSubmit={props.initializeCountdown}
-			class=" flex flex-col justify-center space-y-4 container mx-auto max-w-xl p-10 bg-white dark:bg-stone-900 shadow-md rounded-lg"
+			class=" flex flex-col justify-center space-y-4 container mx-auto max-w-xl h-3/5 p-3 bg-white dark:bg-stone-900 shadow-md rounded-lg"
 		>
 			<h2 class="text-center text-xl font-semibold">Create new countdown</h2>
 			<aside class="flex flex-col justify-center space-y-2">
@@ -51,7 +51,7 @@ export function CountdownForm(props: {
 				/>
 			</aside>
 			<button
-				class="flex flex-row justify-center items-center space-x-2 bg-dark-800 dark:bg-stone-800 hover:opacity-90 duration-100 ease-in-out p-2 w-full max-w-xl rounded-md c-white font-medium mt-4"
+				class="flex flex-row justify-center items-center space-x-2 bg-dark-800 dark:bg-orange-600 hover:opacity-90 duration-100 ease-in-out p-2 w-full max-w-xl rounded-md c-white font-medium mt-4"
 				type="submit"
 				title="Initialize countdown by clicking this button."
 			>
