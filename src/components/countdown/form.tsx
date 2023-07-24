@@ -1,6 +1,5 @@
 import { JSX } from 'preact/jsx-runtime'
 
-
 function ClockIcon() {
 	return (
 		<svg
@@ -27,50 +26,39 @@ export function CountdownForm(props: {
 	return (
 		<form
 			onSubmit={props.initializeCountdown}
-			class=" flex flex-col justify-center space-y-4 container mx-auto max-w-xl p-10 bg-white shadow-md rounded-lg"
+			class=" flex flex-col justify-center space-y-4 container mx-auto max-w-xl p-10 bg-white dark:bg-stone-900 shadow-md rounded-lg"
 		>
 			<h2 class="text-center text-xl font-semibold">Create new countdown</h2>
 			<aside class="flex flex-col justify-center space-y-2">
-				<label htmlFor="hours">
-					Title
-				</label>
+				<label htmlFor="hours">Title</label>
 				<input
-					class="rounded-md p-3 outline-none border-2 border-gray-100 focus:border-gray-400"
+					class="rounded-md p-3 outline-none border-2 border-neutral-100 dark:border-stone-800 focus:dark:border-stone-600  bg-transparent focus:border-neutral-400 "
 					type="text"
 					name="title"
 					placeholder="ie. My first cronometre!"
+					required
 				/>
 			</aside>
+
 			<aside class="flex flex-col justify-center space-y-2">
-				<label htmlFor="hours">
-					Hours
-				</label>
+				<label htmlFor="minutes">Minutes</label>
 				<input
-					class="rounded-md p-3 outline-none border-2 border-gray-100 focus:border-gray-400"
-					type="number"
-					name="hours"
-					placeholder="ie. 0"
-				/>
-			</aside>
-			<aside class="flex flex-col justify-center space-y-2">
-				<label htmlFor="minutes">
-					Minutes
-				</label>
-				<input
-					class="rounded-md p-3 outline-none border-2 border-gray-100 focus:border-gray-400"
+					class="rounded-md p-3 outline-none border-2 border-neutral-100 dark:border-stone-800  bg-transparent focus:border-neutral-400  focus:dark:border-stone-600"
 					type="number"
 					name="minutes"
+					required
 					placeholder="ie. 00"
 				/>
 			</aside>
 			<button
-				class="flex flex-row justify-center items-center space-x-2 bg-dark-800 hover:opacity-90 duration-100 ease-in-out p-2 w-full max-w-xl rounded-md c-white font-medium mt-4"
+				class="flex flex-row justify-center items-center space-x-2 bg-dark-800 dark:bg-stone-800 hover:opacity-90 duration-100 ease-in-out p-2 w-full max-w-xl rounded-md c-white font-medium mt-4"
 				type="submit"
 				title="Initialize countdown by clicking this button."
 			>
 				<ClockIcon />
 				<span>Initialize countdown</span>
 			</button>
+
 			<p class="c-red-500 h-5">{props.errors ? props.errors : null}</p>
 		</form>
 	)
