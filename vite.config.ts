@@ -2,13 +2,21 @@ import { defineConfig } from 'vite'
 import preact from '@preact/preset-vite'
 import { VitePWA } from 'vite-plugin-pwa'
 import Unocss from 'unocss/vite'
-import { presetUno } from 'unocss'
+import { presetUno, presetWebFonts } from 'unocss'
 
 // https://vitejs.dev/config/
 export default defineConfig({
 	plugins: [
 		preact(),
-		Unocss({ presets: [presetUno()] }),
+		Unocss({
+			presets: [
+				presetUno(),
+				presetWebFonts({
+					provider: 'bunny',
+					fonts: { roboto: 'Roboto' },
+				}),
+			],
+		}),
 		VitePWA({
 			injectRegister: 'auto',
 			registerType: 'autoUpdate',
