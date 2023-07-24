@@ -1,5 +1,3 @@
-import { MutableRef, Ref } from 'preact/hooks'
-
 type Props = {
 	results: {
 		title: string
@@ -20,7 +18,9 @@ function SandClockIcon(props: { hasFinished: boolean }) {
 			width="32"
 			height="32"
 			viewBox="0 0 24 24"
-			class={`${baseClassStyles} ${props.hasFinished ? 'rotate-180' : null}`}
+			class={`${baseClassStyles} ${
+				props.hasFinished ? 'rotate-180' : 'rotate-180 duration-'
+			}`}
 		>
 			<path
 				fill="currentColor"
@@ -83,16 +83,16 @@ export function CountdownRemaining(props: Props) {
 		? `${props.results.remainingTime()} minutes remaining`
 		: 'Time out.'
 	return (
-		<section class="h-full w-full container mx-auto max-w-xl flex flex-col justify-center space-y-3">
+		<section class=" flex flex-col justify-center space-y-4 container mx-auto max-w-xl h-3/5 p-3  bg-white dark:bg-stone-900 shadow-md rounded-lg">
 			<h2 class="text-center text-xl font-bold">{props.results.title}</h2>
 			<p class="text-center "> {countdownTimer}</p>
 			<SandClockIcon hasFinished={isActive} />
-			<aside class="w-full mt-20 flex flex-row justify-center items-center space-x-10 c-neutral-50">
+			<aside class="w-full mt-20 flex flex-col justify-center items-center space-y-2 c-neutral-50">
 				{isActive ? (
 					props.results.status === 'IN_PROGRESS' ? (
 						<button
 							type="button"
-							class="flex flex-row justify-center items-center space-x-2 rounded-lg bg-neutral-400 p-3 w-32 hover:opacity-60 duration-100 ease-in-out"
+							class="flex flex-row justify-center items-center space-x-2 bg-gray-700 hover:opacity-90 duration-100 ease-in-out p-2 w-full max-w-xl rounded-md c-white font-medium mt-4"
 							onClick={props.pauseCountdown}
 						>
 							<PauseIcon />
@@ -101,7 +101,7 @@ export function CountdownRemaining(props: Props) {
 					) : (
 						<button
 							type="button"
-							class=" flex flex-row justify-center items-center space-x-2 rounded-lg bg-neutral-400 p-3 w-32 hover:opacity-60 duration-100 ease-in-out"
+							class="flex flex-row justify-center items-center space-x-2 bg-dark-500 hover:opacity-90 duration-100 ease-in-out p-2 w-full max-w-xl rounded-md c-white font-medium mt-4"
 							onClick={props.resumeCountdown}
 						>
 							<ResumeIcon />
@@ -110,7 +110,7 @@ export function CountdownRemaining(props: Props) {
 					)
 				) : null}
 				<button
-					class="flex flex-row justify-center items-center space-x-2 rounded-lg bg-red-400 p-3 w-32 hover:opacity-60 duration-100 ease-in-out"
+					class="flex flex-row justify-center items-center space-x-2 bg-red-500 hover:opacity-90 duration-100 ease-in-out p-2 w-full max-w-xl rounded-md c-white font-medium mt-4"
 					onClick={props.clearCountdown}
 				>
 					<ClearIcon />
