@@ -1,5 +1,4 @@
 import { useSignal, effect } from '@preact/signals'
-import { useRef } from 'preact/hooks'
 import { JSX } from 'preact/jsx-runtime'
 
 type CountdownState = {
@@ -8,7 +7,7 @@ type CountdownState = {
 }
 type CountdownFields = {
 	title: string
-	hours: number
+
 	minutes: number
 }
 type FormErrors = {
@@ -41,7 +40,7 @@ export function useCountdownTimer() {
 		) as unknown as CountdownFields
 		const parsedCountdownValues: CountdownFields = {
 			...countdownValues,
-			hours: Number(countdownValues.hours),
+
 			minutes: Number(countdownValues.minutes),
 		}
 
@@ -50,8 +49,7 @@ export function useCountdownTimer() {
 		else
 			countdown.value = {
 				values: {
-					minutes:
-						parsedCountdownValues.hours * 60 + (parsedCountdownValues.minutes - 1),
+					minutes: parsedCountdownValues.minutes - 1,
 					title: parsedCountdownValues.title,
 				},
 				status: 'IN_PROGRESS',
