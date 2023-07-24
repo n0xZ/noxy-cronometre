@@ -1,24 +1,24 @@
-import { effect, useSignal } from '@preact/signals'
+import { useEffect, useState } from 'preact/hooks'
 
 type Theme = 'light' | 'dark'
+
 export const useTheme = () => {
 	const storedTheme = localStorage.getItem('theme') as Theme | null
 	const actualTheme = storedTheme ? storedTheme : ('light' satisfies Theme)
-	const theme = useSignal<Theme>(actualTheme)
-
+	const [theme, setTheme] = useState(actualTheme)
 	function toggleTheme() {
-		theme.value === 'dark' ? 'light' : 'dark'
+		setTheme((v) => (v === 'dark' ? 'light' : 'dark'))
 	}
 
-	effect(() => {
+	useEffect(() => {
 		const rootEl = document.documentElement
-		if (theme.value === 'dark') {
+		if (theme === 'dark') {
 			rootEl.classList.add('dark')
 			localStorage.setItem('theme', 'dark')
-		} else if (theme.value === 'light') {
+		} else if (theme === 'light') {
 			rootEl.classList.remove('dark')
 			localStorage.removeItem('theme')
 		}
-	})
+	}, [theme])
 	return { theme, toggleTheme }
 }
