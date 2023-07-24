@@ -27,11 +27,11 @@ export function CountdownForm(props: {
 	return (
 		<form
 			onSubmit={props.initializeCountdown}
-			class=" flex flex-col justify-center space-y-5 container mx-auto max-w-xl p-10 bg-white shadow-md rounded-lg"
+			class=" flex flex-col justify-center space-y-4 container mx-auto max-w-xl p-10 bg-white shadow-md rounded-lg"
 		>
-			<h2 class="text-center text-xl font-bold">Create new countdown</h2>
+			<h2 class="text-center text-xl font-semibold">Create new countdown</h2>
 			<aside class="flex flex-col justify-center space-y-2">
-				<label class="font-semibold" htmlFor="hours">
+				<label htmlFor="hours">
 					Title
 				</label>
 				<input
@@ -42,7 +42,7 @@ export function CountdownForm(props: {
 				/>
 			</aside>
 			<aside class="flex flex-col justify-center space-y-2">
-				<label class="font-semibold" htmlFor="hours">
+				<label htmlFor="hours">
 					Hours
 				</label>
 				<input
@@ -53,7 +53,7 @@ export function CountdownForm(props: {
 				/>
 			</aside>
 			<aside class="flex flex-col justify-center space-y-2">
-				<label class="font-semibold" htmlFor="minutes">
+				<label htmlFor="minutes">
 					Minutes
 				</label>
 				<input
@@ -64,7 +64,7 @@ export function CountdownForm(props: {
 				/>
 			</aside>
 			<button
-				class="flex flex-row justify-center items-center space-x-2 bg-dark-800 hover:opacity-80 duration-100 ease-in-out p-2 w-full max-w-xl rounded-md c-white font-medium mt-4"
+				class="flex flex-row justify-center items-center space-x-2 bg-dark-800 hover:opacity-90 duration-100 ease-in-out p-2 w-full max-w-xl rounded-md c-white font-medium mt-4"
 				type="submit"
 				title="Initialize countdown by clicking this button."
 			>
